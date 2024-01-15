@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.employee.mapper.PositionMapper">
+	<resultMap type="position" id="position">
+		<id column="POSITION_NO" property="positionNo" />
+		<result column="POSITION_NAME" property="positionName" />
+	</resultMap>
+
+	<select id="selectAllPosition" resultMap="position">
+		select * from position_list
+	</select>
+
+	<insert id="insertPosition" parameterType="position">
+		insert into position values(#{positionNo},#{positionName})
+	</insert>
+	
+	<update id="updatePosition" parameterType="position">
+		update position_list set position_name = #{positionName} where position_no = #{positionNo}
+	</update>
+	
+	<delete id="deletePosition" parameterType="position">
+		delete from position_list where position_no = #{positionNo}
+	</delete>
+</mapper>
+
+
+
+
+
+
